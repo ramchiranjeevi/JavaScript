@@ -214,6 +214,8 @@ function isEquivalent(a, b) {
 // Outputs: true
 console.log(isEquivalent(bobaFett, jangoFett));
 
+// Outputs: true
+console.log(_.isEqual(bobaFett, jangoFett));
 
 **********************
 
