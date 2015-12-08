@@ -1,0 +1,13 @@
+
+To find the execution time of script.
+
+var i, output = "";
+
+// Start timing now
+console.time("concatenation");
+
+for (i = 1; i <= 1e6; i++)
+    output += i;
+
+// ... and stop.
+console.timeEnd("concatenation");
