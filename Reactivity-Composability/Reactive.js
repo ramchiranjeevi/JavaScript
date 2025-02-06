@@ -15,14 +15,14 @@
 
 // Handler that listens to data assignment operations
 const handler = {
-    set(user, value, property) {
-        const query = `[data-mark="${value}"]`;
+    set(target, property, value) {
+        const query = `[data-mark="${property}"]`;
         const elements = document.querySelectorAll(query);
         for (const element of elements) {
-            element.innerText = property;
+            element.innerText = value;
         }
         console.log(`${property} is being updated`);
-        return Reflect.set(user, value, property);
+        return Reflect.set(target, property, value);
     }
 }
 
@@ -35,4 +35,18 @@ proxy.name = 'Linus';
 
 // Updating the UI automatically:
 
-
+// Composibility:
+(() => {
+    const template = document.getElementsByTagName('template')[0];
+    const componentName = template.getAttribute('name');
+    customElements.define(
+        componentName,
+        class extends HTMLElement {
+            constructor() {
+                super();
+                const component = template.content.children[0].cloneNode(true);
+                this.attachShadow({ mode: 'open' }).appendChild(component);
+            }
+        }
+    );
+})();

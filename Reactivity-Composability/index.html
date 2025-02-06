@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reactivity Example</title>
-    <script src=" http://127.0.0.1:8080/Reactive.js"></script>
 </head>
 <body>
     <h1>Reactivity Example</h1>
@@ -13,5 +12,34 @@
         <div data-mark="name"></div>
         <span data-mark="name"></span>
     </div>
+    <h1>Composibility Example</h1>
+    
+    <template name="wd-video">
+        <video controls width="250">
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm" />
+          
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4" />
+          
+            Download the
+            <a href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm">WEBM</a>
+            or
+            <a href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">MP4</a>
+            video.
+          </video>
+    </template>
+
+    Hello WD
+    <wd-video></wd-video>
+    Hello World
+    <wd-video></wd-video>
+
+    <wd-video 
+    webm-src="https://example.com/video.webm"
+    mp4-src="https://example.com/video.mp4"
+    width="400">
+    </wd-video>
+
+    
+    <script src="http://127.0.0.1:8080/Reactive.js"></script>
 </body>
 </html>
